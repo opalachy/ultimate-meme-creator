@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: aqua;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .align-center {
+    align-items: center;
+  }
+
+/* helper*/
+
+.flex {
+    display: flex;
+}
+
+.nav-bar {
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.img {
+    width: 300px;
+    height: 80px;
+    align-self: center;
+}
+
+.main-menu {
+    justify-content: space-around;
+    width: 400px;
+    align-self: center;
+}
+
+.layout {
+    height: 500px;
+    width: 500px;
+    background-color: lightblue;
+}
+#my-canvas{
+    height: 500px;
+    width: 500px;
+}
+
+.editor.flex {
+    justify-content: space-around;
+    margin-top: 40px;
+    display: none;
+}
+
+.gallery.container.flex {
+    flex-direction: column;
+    display: block;
+}
+
+.search {
+    height: 200px;
+    width: 100%;
+    background-color: lightcoral;
+    text-align: center;
+}
+
+.grid-container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(500px, 1fr));
+    grid-gap: 15px
+}
+
+.box {
+    text-align: center;
+}
+
+picture1 {
+    grid-area: picture1;
+}
+
+picture2 {
+    grid-area: picture2;
+}
+.text-line{
+    width: 490px;
+    height: 30px;
+    padding-left: 5px;
+    margin: 50px 0 50px 0;
+}
+button{
+    margin: 0 20px 20px 50px;
+}
+.color{
+    margin-left: 55px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
