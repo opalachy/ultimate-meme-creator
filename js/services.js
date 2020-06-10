@@ -53,7 +53,7 @@ function getEditorPage(id) {
 
 function drawImg(id) {
     var elImg = new Image();
-    elImg.src = `/sprint 2/meme-imgs (square)/${id}.jpg`;
+    elImg.src = `../sprint 2/meme-imgs (square)/${id}.jpg`;
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, 300, 150);
     }
