@@ -13,18 +13,19 @@ function renderGallery() {
     var imgs = getImgs();
     var strHtmls = imgs.map(function (img) {
         return ` <div onclick="onEditorPage('${img.id}')">
-        <img src="/meme-imgs (square)/${img.id}.jpg">
+        <img src="meme-imgs (square)/${img.id}.jpg">
         </div>`
     });
     var elGal = document.querySelector('.gallery .grid-container');
     elGal.innerHTML = strHtmls.join('');
-    var gNums = getgNums();
-    for (var i = gNums; i >= 1; i--) {
+    var gMaxNums = getgMaxNums();
+    for (var i = gMaxNums; i >= 1; i--) {
         var elText = document.querySelector(`.textbox.line${i}`);
         var strHtmls = `<div "></div>`;
         elText.innerHTML = strHtmls;
     }
     document.getElementById('myInput').value = '';
+    restgNums();
 }
 
 function onMoveToGallery() {

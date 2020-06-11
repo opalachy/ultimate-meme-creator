@@ -9,6 +9,7 @@ var gTextAlign = 'center'
 var gNumTextBox = 1;
 var gX = 150;
 var gMemes;
+var gMaxNums = 3;
 gElCanvas = document.getElementById('my-canvas');
 gCtx = gElCanvas.getContext('2d');
 var gKeywords = { 'happy': 0, 'funny': 0, 'animals': 0, 'childrens': 0, 'leaders': 0, 'movie starts': 0 };
@@ -64,7 +65,7 @@ function switchToGallery() {
 
 function drawImg(id) {
     var elImg = new Image();
-    elImg.src = `/meme-imgs (square)/${id}.jpg`;
+    elImg.src = `meme-imgs (square)/${id}.jpg`;
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, 300, 150);
     }
@@ -74,8 +75,12 @@ function clearCanvas() {
     gCtx.clearRect(0, 0, 500, 500);
 }
 
-function getgNums(){
-    return gNumTextBox;
+function getgMaxNums(){
+    return gMaxNums;
+}
+
+function restgNums(){
+    gNumTextBox = 1;
 }
 
 
