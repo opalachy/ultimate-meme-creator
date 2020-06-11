@@ -1,8 +1,14 @@
 'use strict'
 var gElCanvas;
 var gCtx;
+var gFontColor = 'white';
+var gStrockeColor = 'black';
+var gFontType = 'Impact';
+var gFontSize = 30;
+var gTextAlign = 'center'
 var gNumTextBox = 1;
 var gX = 150;
+var gMemes;
 gElCanvas = document.getElementById('my-canvas');
 gCtx = gElCanvas.getContext('2d');
 var gKeywords = { 'happy': 0, 'funny': 0, 'animals': 0, 'childrens': 0, 'leaders': 0, 'movie starts': 0 };
@@ -30,12 +36,9 @@ var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
     lines: [
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
+        { txt: '', size: 0, align: '', color: '', strocke: '', fontfamily: '' },
+        { txt: '', size: 0, align: '', color: '', strocke: '', fontfamily: '' },
+        { txt: '', size: 0, align: '', color: '', strocke: '', fontfamily: '' }
     ]
 }
 
@@ -48,16 +51,131 @@ function getEditorPage(id) {
     elGal.style.display = 'none'
     var elEditor = document.querySelector('.editor.flex');
     elEditor.style.display = 'flex'
+    gMeme.selectedImgId = id;
     drawImg(id);
+}
+
+function switchToGallery() {
+    var elGal = document.querySelector('.gallery.container.flex');
+    elGal.style.display = 'block'
+    var elEditor = document.querySelector('.editor.flex');
+    elEditor.style.display = 'none'
 }
 
 function drawImg(id) {
     var elImg = new Image();
-    elImg.src = `../sprint 2/meme-imgs (square)/${id}.jpg`;
+    elImg.src = `/meme-imgs (square)/${id}.jpg`;
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, 300, 150);
     }
 }
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, 500, 500);
+}
+
+function getgNums(){
+    return gNumTextBox;
+}
+
+
+function drawText() {
+    for (var i = gNumTextBox; i >= 1; i--) {
+        var elText = document.querySelector(`.textbox.line${i}`);
+        // elText.style.display = 'list-item';
+        var strHtmls = `<div style="font-size: ${gMeme.lines[i - 1].size + 'px'}; font-family: ${gMeme.lines[i - 1].fontfamily}; color:
+         ${gMeme.lines[i - 1].color}; text-align: ${gMeme.lines[i - 1].align}; stroke: ${gMeme.lines[i - 1].strocke};">${gMeme.lines[i - 1].txt}</div>`;
+        elText.innerHTML = strHtmls;
+    }
+}
+
+
+function typeMeme(letter) {
+    for (var i = 1; i < 4; i++) {
+        if (i === gNumTextBox) break;
+    }
+    gMeme.lines[i - 1].txt = letter;
+    gMeme.lines[i - 1].size = gFontSize;
+    gMeme.lines[i - 1].align = gTextAlign;
+    gMeme.lines[i - 1].color = gFontColor;
+    gMeme.lines[i - 1].strocke = gStrockeColor;
+    gMeme.lines[i - 1].fontfamily = gFontType;
+    clearCanvas();
+    drawImg(gMeme.selectedImgId);
+    setTimeout(function () { drawText() }, 3);
+}
+
+function addTextLine(val) {
+    if (gNumTextBox <= 2) {
+        gNumTextBox++
+        var elText = document.querySelector(`.textbox.line${gNumTextBox}`);
+        elText.style.display = 'list-item';
+        document.getElementById('myInput').value = gMeme.lines[gNumTextBox - 1].txt;
+    } else {
+        return
+    }
+}
+
+function switchTextLine(val){
+    if (gNumTextBox === 2 ){
+        gNumTextBox =1;
+    }else if (gNumTextBox === 1 && gMeme.lines[2].txt === ''){
+        gNumTextBox=2;
+    }else if (gNumTextBox === 1 && gMeme.lines[2].txt !== ''){
+        gNumTextBox = 3;
+    }else{
+        gNumTextBox = 2;
+    }
+    document.getElementById('myInput').value = gMeme.lines[gNumTextBox - 1].txt;
+}
+
+function deleteTextLine(val){
+    gMeme.lines[gNumTextBox - 1].txt = '';
+    document.getElementById('myInput').value = '';
+    drawText();
+}
+
+// var y = getY();
+
+// function drawRect() {
+//     var y = getY();
+//     gCtx.beginPath();
+//     gCtx.rect(0, y, 300, 30);
+//     gCtx.strokeStyle = 'black';
+//     gCtx.stroke();
+//     gCtx.fillStyle = '#ffffff00';
+//     gCtx.fillRect(0, y, 300, 30);
+// }
+
+// setTimeout(function () { drawText(letter, (y + (30 + 30) / 2)) }, 3);
+
+// function getY() {
+//     var y;
+//     if (gNumTextBox === 1) {
+//         y = 10;
+//     } else if (gNumTextBox === 2) {
+//         y = 110;
+//     } else if (gNumTextBox === 3) {
+//         y = 60;
+//     } else {
+//         return null;
+//     }
+//     return y;
+// }
+
+
+// function drawText(text, y) {
+//     for (var i = gNumTextBox; i >= 1; i--) {
+
+//     }
+//     drawRect();
+//     gCtx.lineWidth = '1';
+//     gCtx.strokeStyle = `${gStrockeColor}`;
+//     gCtx.fillStyle = `${gFontColor}`;
+//     gCtx.font = `${gFontSize + 'px'} ${gFontType}`;
+//     gCtx.textAlign = `${gTextAlign}`;
+//     gCtx.fillText(text, gX, y);
+//     gCtx.strokeText(text, gX, y);
 // gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 
 
@@ -85,12 +203,9 @@ function drawImg(id) {
 //     const elBox = document.querySelector('.canvas-container');
 //     var hammer = new Hammer(elBox);
 //     hammer.on('panleft panright panup pandown tap doubletap press swipe', function (ev) {
-//         draw(ev.srcEvent)
+//         drag(ev.srcEvent);
+//         const { offsetX, offsetY } = ev;
 //     });
-// }
-
-// function clearCanvas() {
-//     gCtx.clearRect(0, 0, 500, 500);
 // }
 
 // function onDownloadCanvas(elLink) {
@@ -120,41 +235,4 @@ function drawImg(id) {
 //             break;
 //     }
 // }
-
-function drawRect() {
-    var y = getY();
-    gCtx.beginPath();
-    gCtx.rect(0, y, 300, 20);
-    gCtx.strokeStyle = 'black';
-    gCtx.stroke();
-}
-
-function drawText(text, y) {
-    gCtx.lineWidth = '1';
-    gCtx.strokeStyle = 'black';
-    gCtx.fillStyle = 'white';
-    gCtx.font = '20px Impact';
-    gCtx.textAlign = 'center';
-    gCtx.fillText(text, gX, y);
-    gCtx.strokeText(text, gX, y);
-    gX+=20;
-}
-
-function typeMeme(letter) {
-    var y = getY();
-    drawText(letter, y+17);
-}
-
-function getY() {
-    var y;
-    if (gNumTextBox === 1) {
-        y = 10;
-    } else if (gNumTextBox === 2) {
-        y = 60;
-    } else if (gNumTextBox === 3) {
-        y = 120;
-    } else {
-        return null;
-    }
-    return y;
-}
+// }

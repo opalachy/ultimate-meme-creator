@@ -10,15 +10,40 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-  }
-  .align-center {
-    align-items: center;
-  }
+}
+
+.textbox {
+    border: 1px solid black;
+    position: absolute;
+    width: inherit;
+    list-style-type: none;
+    text-align: center;
+}
+
+.textbox.line1 {
+    margin-top: 70px;
+    display: list-item;
+}
+
+.textbox.line2 {
+    margin-top: 400px;
+    display: none;
+}
+
+.textbox.line3 {
+    margin-top: 235px;
+    display: none;
+}
 
 /* helper*/
 
 .flex {
     display: flex;
+}
+
+.imgg {
+    width: 30px;
+    height: 40px;
 }
 
 .nav-bar {
@@ -46,7 +71,8 @@ body {
     width: 500px;
     background-color: lightblue;
 }
-#my-canvas{
+
+#my-canvas {
     height: 500px;
     width: 500px;
 }
@@ -87,16 +113,19 @@ picture1 {
 picture2 {
     grid-area: picture2;
 }
-.text-line{
+
+.text-line {
     width: 490px;
     height: 30px;
     padding-left: 5px;
     margin: 50px 0 50px 0;
 }
-button{
+
+button {
     margin: 0 20px 20px 50px;
 }
-.color{
+
+.color {
     margin-left: 55px;
     padding-bottom: 10px;
     padding-top: 10px;

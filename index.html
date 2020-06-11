@@ -10,11 +10,11 @@
 
 <body onload="init()">
     <nav class="nav-bar flex">
-        <img class="img" src="../sprint 2/DESIGN/LOGO/LOGO.png" alt="">
+        <img class="img" src="/DESIGN/LOGO/LOGO.png" alt="">
         <div class="menu-bar">
             <ul class="main-menu clean-list flex align-center">
                 <li>
-                    <a href="#">Gallery</a>
+                    <a onclick="onMoveToGallery()" href="#">Gallery</a>
                 </li>
                 <li>
                     <a href="#">Memes</a>
@@ -28,24 +28,37 @@
 
     <div class="editor flex">
         <div class="canvas layout">
-            <canvas class="canvas-container" onclick="draw(event)" id="my-canvas"></canvas>
+            <div class="textbox line1" "></div>
+            <div class="textbox line2" "></div>
+            <div class="textbox line3" "></div>
+            <canvas class="canvas-container"  id="my-canvas"></canvas>
         </div>
         <div class="control-panle layout">
             <div>
-                <input oninput="onInput()" id="myInput" onclick="drawRect()" class="text-line" type="text" placeholder="Write a meme" />
-                <button class="first row move-up-down"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                <button class="first row switch-line"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                <button class="first row add-line"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/add.png" alt=""></button>
-                <button class="first row delete-line"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/trash.png" alt=""></button>
+                <input oninput="onInput()" id="myInput" 
+                class="text-line" type="text" placeholder="Write a meme" />
+                <button class="first row move-up-down">
+                    <img class="imgg" style="background-color:rgb(255, 208, 0);" src="/DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button onclick="onSwitchTextLine(1)" class="first row switch-line">
+                    <img class="imgg" style="background-color:rgb(0, 255, 0);" src="/DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button onclick="onAddTextLine(1)" class="first row add-line">
+                    <img class="imgg" style="background-color:rgb(0, 162, 255);" src="/DESIGN/Meme1 - Sergei/ICONS/add.png" alt=""></button>
+                <button onclick="onDeleteTextLine(1)" class="first row delete-line">
+                    <img class="imgg" style="background-color:rgb(255, 8, 0);" src="/DESIGN/Meme1 - Sergei/ICONS/trash.png" alt=""></button>
             </div>
             <div class="combin">
-                <button class="second row increase-font"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/increase font - icon.png" alt=""></button>
-                <button class="second row decrease-font"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/decrease font - icon.png" alt=""></button>
-                <input class="color strock" type="color" onchange="getColorStrock()" name="textColor" />
+                <button class="second row increase-font">
+                    <img class="imgg" style="background-color:rgb(234, 0, 255);" src="/DESIGN/Meme1 - Sergei/ICONS/increase font - icon.png" alt=""></button>
+                <button class="second row decrease-font">
+                    <img class="imgg" style="background-color:rgb(62, 112, 62);" src="/DESIGN/Meme1 - Sergei/ICONS/decrease font - icon.png" alt=""></button>
+                <input class="color strocke" type="color" onchange="getColorStrock()" name="textColor" />
                 <input class="color font" type="color" onchange="getColorFont()" name="textColor" />
-                <button class="second row align-left"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/align-to-left.png" alt=""></button>
-                <button class="second row align-center"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/center-text-alignment.png" alt=""></button>
-                <button class="second row align-right"><img width="30px" height="40px" src="../sprint 2/DESIGN/Meme1 - Sergei/ICONS/align-to-right.png" alt=""></button>
+                <button class="second row align-left">
+                    <img class="imgg" style="background-color:rgb(0, 217, 255);" src="/DESIGN/Meme1 - Sergei/ICONS/align-to-left.png" alt=""></button>
+                <button class="second row align-center">
+                    <img class="imgg" style="background-color:rgb(160, 175, 112);" src="/DESIGN/Meme1 - Sergei/ICONS/center-text-alignment.png" alt=""></button>
+                <button class="second row align-right">
+                    <img class="imgg" style="background-color:rgb(238, 189, 27);" src="/DESIGN/Meme1 - Sergei/ICONS/align-to-right.png" alt=""></button>
                 <select onchange="setFontType(this.value)">
                     <option value="Impact">Triangle</option>
                     <option value="Arial">Rect</option>
@@ -69,7 +82,7 @@
 
         </div>
     </div>
-
+    <script src="lib/hammer.min.js"></script>
     <script src="js/services.js"></script>
     <script src="js/control.js"></script>
 </body>
