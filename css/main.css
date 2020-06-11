@@ -1,9 +1,16 @@
-* {
-    margin: 0;
+/* * {
+    box-sizing: border-box;
 }
 
 body {
+    margin: 0;
     background-color: aqua;
+} */
+
+a {
+    background-color: aqua;
+    color: blue;
+    margin-right: 20px;
 }
 
 .clean-list {
@@ -18,21 +25,6 @@ body {
     width: inherit;
     list-style-type: none;
     text-align: center;
-}
-
-.textbox.line1 {
-    margin-top: 70px;
-    display: list-item;
-}
-
-.textbox.line2 {
-    margin-top: 400px;
-    display: none;
-}
-
-.textbox.line3 {
-    margin-top: 235px;
-    display: none;
 }
 
 /* helper*/
@@ -63,7 +55,8 @@ body {
 .main-menu {
     justify-content: space-around;
     width: 400px;
-    align-self: center;
+    /* align-self: center; */
+    margin-right: 100px;
 }
 
 .layout {
@@ -93,12 +86,15 @@ body {
     width: 100%;
     background-color: lightcoral;
     text-align: center;
+    font-size: 40px;
+    font-style: italic;
+    padding-top: 100px;
 }
 
 .grid-container {
     margin: 20px;
     display: grid;
-    grid-template-columns: repeat(4, minmax(500px, 1fr));
+    grid-template-columns: auto auto auto;
     grid-gap: 15px
 }
 
@@ -129,4 +125,89 @@ button {
     margin-left: 55px;
     padding-bottom: 10px;
     padding-top: 10px;
+}
+
+.menu-bar {
+    align-self: center;
+}
+
+@media (max-width: 1000px) {
+    .editor.flex {
+        flex-direction: column;
+        margin-left: 50px;
+        margin-bottom: 10px;
+
+    }
+}
+
+.fa {
+    display: inline-block;
+    font-family: fontawesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo {
+    font-family: eurofbold, serif;
+    font-size: 2.5rem;
+    margin-top: 30px;
+    margin-left: 20px;
+
+}
+
+.flex-1 {
+    flex: 1;
+}
+.extra{
+    margin-left: 55px;
+}
+
+body {
+    margin: 0;
+    background-image: url(https://images.unsplash.com/photo-1545851876-eb2bbc712ca6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1875&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+button {
+    cursor: pointer;
+}
+
+.images-wrapper {
+    height: 100%;
+}
+
+header .header-wrapper {
+    height: 130px;
+}
+
+header .logo {
+    padding: 0 20px;
+}
+
+.main-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 130px;
+    height: 130px;
+    width: 8.4375rem;
+    text-align: center;
+    border-right: 1px solid #1e1e1e;
+}
+
+.main-menu a:first-child {
+    border-left: 1px solid #1e1e1e;
+}
+
+.main-menu a.active {
+    border-bottom: 6px solid #58c93a;
+    color: #58c93a;
+}
+
+.main-menu a:hover {
+    color: #58c93a;
 }

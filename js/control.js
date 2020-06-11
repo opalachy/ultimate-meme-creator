@@ -6,7 +6,8 @@ function init() {
 
 function onEditorPage(id) {
     getEditorPage(id);
-    // checkHammer();
+    checkHammer();
+    setTimeout(drawRect, 3);
 }
 
 function renderGallery() {
@@ -18,12 +19,7 @@ function renderGallery() {
     });
     var elGal = document.querySelector('.gallery .grid-container');
     elGal.innerHTML = strHtmls.join('');
-    var gMaxNums = getgMaxNums();
-    for (var i = gMaxNums; i >= 1; i--) {
-        var elText = document.querySelector(`.textbox.line${i}`);
-        var strHtmls = `<div "></div>`;
-        elText.innerHTML = strHtmls;
-    }
+    restText();
     document.getElementById('myInput').value = '';
     restgNums();
 }
@@ -41,9 +37,36 @@ function onInput() {
 function onAddTextLine(val) {
     addTextLine(val);
 }
-function onSwitchTextLine(val) {
-    switchTextLine(val);
+function onSwitchTextLine() {
+    switchTextLine();
 }
-function onDeleteTextLine(val) {
-    deleteTextLine(val);
+function onDeleteTextLine() {
+    deleteTextLine();
+}
+function onIncreaseFontSize(val) {
+    increaseFontSize(val);
+}
+function onDecreaseFontSize(val) {
+    decreaseFontSize(val);
+}
+function onChangeStrockeColor() {
+    changeStrockeColor();
+}
+function onChangeFontColor() {
+    changeFontColor();
+}
+function onAlignLeft(val) {
+    alignLeft(val);
+}
+function onAlignRight(val) {
+    alignRight(val);
+}
+function onAlignCenter(val) {
+    alignCenter(val);
+}
+function onSetFontType(fonttype) {
+    setFontType(fonttype);
+}
+function onDownloadCanvas(elLink) {
+    downloadCanvas(elLink);
 }
