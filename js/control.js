@@ -70,3 +70,9 @@ function onSetFontType(fonttype) {
 function onDownloadCanvas(elLink) {
     downloadCanvas(elLink);
 }
+
+function onKeySearch(ev) {
+    ev.preventDefault();
+    getSearchKeyword();
+    renderGallery();
+}

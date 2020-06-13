@@ -9,31 +9,33 @@ var gTextAlign = 'center'
 var gNumTextBox = 1;
 var gX = 150;
 var gMemes;
+var gSortImgs=[];
 var gMaxNums = 3;
 gElCanvas = document.getElementById('my-canvas');
 gCtx = gElCanvas.getContext('2d');
 var gY = [30, 130, 80];
-var gKeywords = { 'happy': 0, 'funny': 0, 'animals': 0, 'childrens': 0, 'leaders': 0, 'movie starts': 0 };
+var gKeywords = { 'happy': 0, 'funny': 0, 'animals': 0, 'childrens': 0, 'leaders': 0, 'movie star': 0 };
 var gImgs = [
-    { id: 1, url: 'meme-imgs(square)/1.jpg', keywords: ['leadrs'] },
+    { id: 1, url: 'meme-imgs(square)/1.jpg', keywords: ['leaders'] },
     { id: 2, url: 'meme-imgs(square)/2.jpg', keywords: ['animals'] },
     { id: 3, url: 'meme-imgs(square)/3.jpg', keywords: ['animals', 'childrens'] },
     { id: 4, url: 'meme-imgs(square)/4.jpg', keywords: ['animals'] },
     { id: 5, url: 'meme-imgs(square)/5.jpg', keywords: ['childrens'] },
-    { id: 6, url: 'meme-imgs(square)/6.jpg', keywords: ['movie starts'] },
+    { id: 6, url: 'meme-imgs(square)/6.jpg', keywords: ['movie star'] },
     { id: 7, url: 'meme-imgs(square)/7.jpg', keywords: ['childrens'] },
-    { id: 8, url: 'meme-imgs(square)/8.jpg', keywords: ['happy', 'movie starts'] },
+    { id: 8, url: 'meme-imgs(square)/8.jpg', keywords: ['happy', 'movie star'] },
     { id: 9, url: 'meme-imgs(square)/9.jpg', keywords: ['happy', 'childrens'] },
-    { id: 10, url: 'meme-imgs(square)/10.jpg', keywords: ['happy', 'leadrs'] },
-    { id: 11, url: 'meme-imgs(square)/11.jpg', keywords: ['movie starts'] },
-    { id: 12, url: 'meme-imgs(square)/12.jpg', keywords: ['movie starts'] },
-    { id: 13, url: 'meme-imgs(square)/13.jpg', keywords: ['movie starts'] },
-    { id: 14, url: 'meme-imgs(square)/14.jpg', keywords: ['movie starts'] },
-    { id: 15, url: 'meme-imgs(square)/15.jpg', keywords: ['movie starts'] },
-    { id: 16, url: 'meme-imgs(square)/16.jpg', keywords: ['happy', 'movie starts'] },
-    { id: 17, url: 'meme-imgs(square)/17.jpg', keywords: ['leadrs'] },
-    { id: 18, url: 'meme-imgs(square)/18.jpg', keywords: ['movie starts'] }
+    { id: 10, url: 'meme-imgs(square)/10.jpg', keywords: ['happy', 'leaders'] },
+    { id: 11, url: 'meme-imgs(square)/11.jpg', keywords: ['movie star'] },
+    { id: 12, url: 'meme-imgs(square)/12.jpg', keywords: ['movie star'] },
+    { id: 13, url: 'meme-imgs(square)/13.jpg', keywords: ['movie star'] },
+    { id: 14, url: 'meme-imgs(square)/14.jpg', keywords: ['movie star'] },
+    { id: 15, url: 'meme-imgs(square)/15.jpg', keywords: ['movie star'] },
+    { id: 16, url: 'meme-imgs(square)/16.jpg', keywords: ['happy', 'movie star'] },
+    { id: 17, url: 'meme-imgs(square)/17.jpg', keywords: ['leaders'] },
+    { id: 18, url: 'meme-imgs(square)/18.jpg', keywords: ['movie star'] }
 ];
+
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -45,7 +47,10 @@ var gMeme = {
 }
 
 function getImgs() {
-    return gImgs;
+    if (gSortImgs.length===0){
+        gSortImgs = gImgs;
+    } 
+    return gSortImgs;
 }
 
 function getEditorPage(id) {
@@ -55,6 +60,22 @@ function getEditorPage(id) {
     elEditor.style.display = 'flex'
     gMeme.selectedImgId = id;
     drawImg(id);
+}
+
+function getSearchKeyword() {
+    gSortImgs = [];
+    var elSearch = document.getElementById("mySearch").value;
+    document.getElementById("mySearch").value = '';
+    console.log(elSearch);
+    gImgs.map(function (img) {
+        img.keywords.filter(function (keyword) {
+            if (keyword === elSearch) {
+                gSortImgs.push(img);
+            }  
+            return
+        });
+        return
+    });
 }
 
 function switchToGallery() {

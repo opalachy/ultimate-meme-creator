@@ -78,8 +78,8 @@
     </div>
     <div class="gallery-wrapper container flex">
         <div class="search">
-            <form class="example" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search">
+            <form onsubmit="onKeySearch(event)" class="example" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search" id="mySearch">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             <!-- <pre><span>happy</span>  <span>funny</span>  <span>animals</span>  <span>childrens</span>  <span>leaders</span>  <span>movie starts</span>
