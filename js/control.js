@@ -13,11 +13,11 @@ function onEditorPage(id) {
 function renderGallery() {
     var imgs = getImgs();
     var strHtmls = imgs.map(function (img) {
-        return ` <div onclick="onEditorPage('${img.id}')">
-        <img src="meme-imgs (square)/${img.id}.jpg">
+        return ` <div class="imges" onclick="onEditorPage('${img.id}')">
+        <img style="width: 200px; height: 200px;" src="meme-imgs (square)/${img.id}.jpg">
         </div>`
     });
-    var elGal = document.querySelector('.gallery .grid-container');
+    var elGal = document.querySelector('.gallery.pictures');
     elGal.innerHTML = strHtmls.join('');
     restText();
     document.getElementById('myInput').value = '';

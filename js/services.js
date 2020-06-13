@@ -49,7 +49,7 @@ function getImgs() {
 }
 
 function getEditorPage(id) {
-    var elGal = document.querySelector('.gallery.container.flex');
+    var elGal = document.querySelector('.gallery-wrapper.container.flex');
     elGal.style.display = 'none'
     var elEditor = document.querySelector('.editor.flex');
     elEditor.style.display = 'flex'
@@ -58,7 +58,7 @@ function getEditorPage(id) {
 }
 
 function switchToGallery() {
-    var elGal = document.querySelector('.gallery.container.flex');
+    var elGal = document.querySelector('.gallery-wrapper.container.flex');
     elGal.style.display = 'block'
     var elEditor = document.querySelector('.editor.flex');
     elEditor.style.display = 'none'

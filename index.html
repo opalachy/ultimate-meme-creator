@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Ultimate Meme Creator</title>
 </head>
 
 <body onload="init()">
     <header>
-        <nav class="nav-bar header-wrapper flex align-center">
+        <nav class="nav-bar header-wrapper container flex align-center">
             <div class="logo flex-1">
                 <img class="img" src="DESIGN/LOGO/LOGO.png" alt="">
             </div>
@@ -34,70 +35,64 @@
             <canvas class=" canvas-container" id="my-canvas"></canvas>
         </div>
         <div class="control-panle layout">
-            <div>
+            <div class="cont">
                 <input oninput="onInput()" id="myInput" class="text-line" type="text" placeholder="Write a meme" />
-                <button class="first row move-up-down" style="background-color: #E71D36;">
-                    <img class="imgg"
-                        src="DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
-                        alt=""></button>
-                <button onclick="onSwitchTextLine()" class="first row switch-line" style="background-color: #AF4319;">
-                    <img class="imgg"
-                        src="DESIGN/Meme1 - Sergei/ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
-                        alt=""></button>
-                <button onclick="onAddTextLine(1)" class="first row add-line" style="background-color: #772014;">
+                <button class="first row move-up-down">
+                    <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/up-and-down.png" alt=""></button>
+                <button onclick="onSwitchTextLine()" class="first row switch-line">
+                    <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/up-and-down.png" alt=""></button>
+                <button onclick="onAddTextLine(1)" class="first row add-line">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/add.png" alt=""></button>
-                <button onclick="onDeleteTextLine()" class="first row delete-line" style="background-color: #545863;">
+                <button onclick="onDeleteTextLine()" class="first row delete-line">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/trash.png" alt=""></button>
             </div>
-            <div class="combin">
-                <button onclick="onIncreaseFontSize(1)" class="second row increase-font"
-                    style="background-color: #00E8FC;">
+            <div class="combin cont">
+                <button onclick="onIncreaseFontSize(1)" class="second row increase-font">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/increase font - icon.png" alt=""></button>
-                <button onclick="onDecreaseFontSize(1)" class="second row decrease-font"
-                    style="background-color: #F96E46;">
+                <button onclick="onDecreaseFontSize(1)" class="second row decrease-font">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/decrease font - icon.png" alt=""></button>
-                <input onchange="onChangeStrockeColor()" class="color strocke" type="color" name="strockeColor"
-                    style="background-color: #F9C846;" />
-                <input onchange="onChangeFontColor()" class="color font" type="color" name="textColor"
-                    style="background-color: #FFE3E3;" />
-                <button onclick="onAlignLeft('right')" class="second row align-left" style="background-color: #A9AFD1;">
+                <input onchange="onChangeStrockeColor()" class="color strocke" type="color" name="strockeColor" />
+                <input onchange="onChangeFontColor()" class="color font" type="color" name="textColor" />
+                <button onclick="onAlignLeft('right')" class="second row align-left">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/align-to-left.png" alt=""></button>
-                <button onclick="onAlignCenter('center')" class="second row align-center"
-                    style="background-color: #A1CDF4;">
+                <button onclick="onAlignCenter('center')" class="second row align-center">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/center-text-alignment.png" alt=""></button>
-                <button onclick="onAlignRight('left')" class="second row align-right"
-                    style="background-color: #7C809B;">
+                <button onclick="onAlignRight('left')" class="second row align-right">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/align-to-right.png" alt=""></button>
-                <select onchange="onSetFontType(this.value)"
-                    style="background-color: #382633; width: 80px; margin-left: 30px; color: white;">
+                <select class="font-type" onchange="onSetFontType(this.value)">
                     <option value="Impact">Impact</option>
                     <option value="Arial">Arial</option>
                     <option value="Times">Times</option>
                     <option value="Cochin">Cochin</option>
                 </select>
             </div>
-            <div>
-                <button class="extra" style="background-color: #92BDA3;">[X]</button>
-                <button class="extra" style="background-color: #A1BA89;margin-left: 65px;">[X]</button>
-                <button class="extra" style="background-color: #A5CC6B;margin-left: 65px;">[X]</button>
-                <button class="extra" style="background-color: #806D40;margin-left: 65px;">[X]</button>
+            <div class="cont">
+                <button class="extra1">[x]</button>
+                <button class="extra2">[x]</button>
+                <button class="extra3">[x]</button>
+                <button class="extra4">[x]</button>
             </div>
-            <button style="background-color: #C2DFE3">Share</button>
-            <button style="background-color: #5C6B73; text-align: center;"><a href="#" onclick="onDownloadCanvas(this)"
-                    download="">Download</a></button>
+            <button class="share">Share</button>
+            <button class="download"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
         </div>
     </div>
-    <div class="gallery container flex">
-        <div class="search">Hello</div>
-        <div class="gallery grid-container">
+    <div class="gallery-wrapper container flex">
+        <div class="search">
+            <form class="example" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <!-- <pre><span>happy</span>  <span>funny</span>  <span>animals</span>  <span>childrens</span>  <span>leaders</span>  <span>movie starts</span>
+            </pre>        -->
+        </div>
+        <div class="gallery pictures container flex">
 
         </div>
     </div>
+
     <script src="lib/hammer.min.js"></script>
     <script src="js/services.js"></script>
     <script src="js/control.js"></script>
 </body>
 
 </html>
-
-<!-- grid-container -->
