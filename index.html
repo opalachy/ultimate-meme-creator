@@ -32,12 +32,13 @@
     </header>
     <div class="editor flex">
         <div class="canvas layout">
-            <canvas class=" canvas-container" id="my-canvas"></canvas>
+            <canvas class=" canvas-container" width="500" height="500" id="my-canvas"></canvas>
         </div>
         <div class="control-panle layout">
             <div class="cont">
                 <input oninput="onInput()" id="myInput" class="text-line" type="text" placeholder="Write a meme" />
                 <button class="first row move-up-down">
+                    <!--todo:  names -->
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/up-and-down.png" alt=""></button>
                 <button onclick="onSwitchTextLine()" class="first row switch-line">
                     <img class="imgg" src="DESIGN/Meme1 - Sergei/ICONS/up-and-down.png" alt=""></button>
@@ -73,15 +74,22 @@
                 <button class="extra4">[x]</button>
             </div>
             <button class="share">Share</button>
+            <button onclick="onSaveMeme()" class="save-meme">Save</button>
             <button class="download"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
         </div>
     </div>
     <div class="gallery-wrapper container flex">
-        <div class="search">
-            <form onsubmit="onKeySearch(event)" class="example" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search" id="mySearch">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+
+        <div class="search flex">
+            <div class="search-form">
+                <form onsubmit="onKeySearch(event)" class="example" action="action_page.php">
+                    <input type="text" placeholder="Search.." name="search" id="mySearch">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="saved-but">
+                <button onclick="onShowSavedMemes()" class="my-saved-memes">My saved memes</button>
+            </div>
             <!-- <pre><span>happy</span>  <span>funny</span>  <span>animals</span>  <span>childrens</span>  <span>leaders</span>  <span>movie starts</span>
             </pre>        -->
         </div>
@@ -89,10 +97,16 @@
 
         </div>
     </div>
+    <div class="gallery-wrapper container flex saved-memes">
+        <div class="gallery pictures container flex saved-memess">
+            <!-- <img style="width: 200px; height: 200px;" src="DESIGN/Meme1 - Sergei/ICONS/Under-Constraction.JPG" alt=""> -->
+        </div>
+    </div>
 
     <script src="lib/hammer.min.js"></script>
-    <script src="js/services.js"></script>
-    <script src="js/control.js"></script>
+    <script src="js/memes-storage.js"></script>
+    <script src="js/memes-services.js"></script>
+    <script src="js/memes-control.js"></script>
 </body>
 
 </html>

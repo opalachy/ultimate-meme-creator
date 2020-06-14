@@ -33,7 +33,6 @@ body {
 }
 
 .container {
-    /* max-width: 980px; */
     margin: 0 auto;
 }
 
@@ -68,13 +67,13 @@ body {
 }
 
 .search {
-    height: 150px;
     width: 100%;
     background-color: lightcoral;
     text-align: center;
     font-size: 40px;
     font-style: italic;
     border: 2px solid rebeccapurple;
+    flex-direction: column;
 }
 
 .editor.flex {
@@ -100,6 +99,10 @@ button {
     margin-top: 20px;
 }
 
+.imges:hover{
+    opacity: 0.75;
+}
+
 .pictures {
     flex-direction: row;
     flex-wrap: wrap;
@@ -110,7 +113,6 @@ button {
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    /* margin: 20px; */
     justify-content: space-between;
     margin: 0 auto;
     margin-top: 20px;
@@ -118,7 +120,7 @@ button {
 
 .example {
     text-align: left;
-    margin: 30px 0 20px 20px;
+    margin: 0 0 0 20px;
 }
 
 /* Button colors*/
@@ -200,11 +202,15 @@ button {
 
 .share {
     background-color: #C2DFE3;
-    margin-right: 240px;
+    margin-right: 25px;
 }
 
 .download {
     background-color: #5C6B73;
+}
+
+.save-meme {
+    background-color: rosybrown;
 }
 
 .imgg {
@@ -218,11 +224,6 @@ button {
     background-color: lightblue;
 }
 
-#my-canvas {
-    height: 500px;
-    width: 500px;
-}
-
 button {
     margin: 0 20px 20px 50px;
 }
@@ -231,13 +232,27 @@ button {
     width: 490px;
     height: 40px;
     padding-left: 5px;
-    margin: 50px 0 50px 0;
+    margin: 0px 10px 10px 5px;
+    border: 1px solid black;
 }
 
 .cont {
     border-top: 1px solid red;
     padding-top: 15px;
     margin-top: 10px;
+}
+.my-saved-memes {
+    margin-left: 20px;
+}
+.saved-but {
+    align-self: self-start;
+    margin: 0px;
+    margin-bottom: 20px;
+    font: -webkit-small-control;
+}
+
+.saved-memes{
+    display: none;
 }
 
 @media (max-width: 1000px) {
@@ -249,6 +264,7 @@ button {
     .layout {
         margin-bottom: inherit;
     }
+
 }
 
 @media (max-width: 720px) {
@@ -280,40 +296,17 @@ button {
     .logo {
         margin-left: 20px;
     }
-}
-/* 
-@media (max-width: 550px) {
-    .editor.flex {
-        flex-direction: column;
-        margin-bottom: 10px;
-        align-items: center;
-        position: relative;
-        width: 100%;
-    }
-    .layout {
-        margin-bottom: inherit;
-    }
-    .header-wrapper {
-        height: 80px;
-    }
-    .main-menu a {
-        height: 80px;
-        line-height: 80px;
-        height: 26px;
-        line-height: 21px;
-        border: 1px solid black;
-    }
-    .main-menu {
-        flex-direction: column;
-        height: 80px;
-    }
-    .search {
-        height: auto;
-    }
-    .logo {
+    .my-saved-memes {
         margin-left: 20px;
     }
-} */
+    .saved-but {
+        align-self: self-start;
+        margin: 0px;
+        margin-bottom: 20px;
+        font: -webkit-small-control;
+    }
+}
+
 
 @media (max-width: 550px) {
     .editor.flex {
@@ -357,19 +350,24 @@ button {
         width: 250px;
         background-color: lightblue;
     }
-    #my-canvas {
+    .canvas-container {
         height: 250px;
         width: 250px;
     }
+    /* #my-canvas {
+        height: 250px;
+        width: 250px;
+    } */
     .imgg {
         width: 5px;
         height: 10px;
     }
     .text-line {
         width: 220px;
-        height: 40px;
+        height: 30px;
         padding-left: 5px;
-        margin: 5px 0 5px 0;
+        margin: 0px 10px 10px 15px;
+        border: 1px solid black;
     }
     button {
         margin: 0 20px 10px 10px;
@@ -399,10 +397,25 @@ button {
         margin-left: 6px;
     }
     .share {
-        margin-right: 73px;
+        margin-right: 0px;
+    }
+    .download {
+        margin: 0px;
+    }
+    .save-meme {
+        margin-left: 20px;
     }
     .cont {
         padding-top: 10px;
         margin-top: 5px;
+    }
+    .my-saved-memes {
+        margin-left: 20px;
+    }
+    .saved-but {
+        align-self: self-start;
+        margin: 0px;
+        margin-bottom: 20px;
+        font: -webkit-small-control;
     }
 }
