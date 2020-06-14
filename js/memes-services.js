@@ -255,7 +255,7 @@ function checkHammer() {
 }
 
 function updategMemes() {
-    const memes = loadFromStorage(KEY)
+    var memes = loadFromStorage(KEY)
     if (!memes || !memes.length) {
         memes = [];
     }
